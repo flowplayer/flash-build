@@ -3,13 +3,9 @@
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
-    <property name="version-1" value="3"/>
-    <property name="version-2" value="2"/>
-    <property name="version-3" value="17"/>
-    <property name="version-status" value="dev"/>
-    <property name="controls-version-info" value="3.2.15"/>
-    <property name="audio-version-info" value="3.2.10"/>
-    <property name="flowplayer-js-version-info" value="3.2.12"/>
+    <property name="version" value="3.2.17" />
+    <property file="${version}.properties"  />
+
     <property name="source-dist-root-folder" value="flowplayer"/>
 
     <property name="version-status-quoted" value="&quot;&#39;${version-status}&#39;&quot;"/>
@@ -17,6 +13,7 @@
                else="${version-1}.${version-2}.${version-3}-${version-status}">
         <equals arg1="${version-status}" arg2=""/>
     </condition>
+    <echo message="flowplayer version ${version}" />
 
     <property name="controls-version-info-quoted" value="&quot;&#39;${controls-version-info}&#39;&quot;"/>
     <property name="audio-version-info-quoted" value="&quot;&#39;${audio-version-info}&#39;&quot;"/>
