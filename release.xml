@@ -96,7 +96,7 @@
 <echo file="${yaml-file}" append="true" message="        player: ${flowplayer-js-version-info}">
 </echo>
 
-<iterate-plugins target="write-version" buildfiles="${jsplugins.buildfiles}" basedirectory="../js-plugins"/>
+<iterate-plugins target="write-version" buildfiles="${jsplugins.buildfiles}" basedirectory="${jsplugins.dir}"/>
 
 <echo file="${yaml-file}" append="true" message="    zip:">
 </echo>
@@ -114,7 +114,7 @@
 <echo file="${yaml-file}" append="true" message="    flowplayer.commercial.zip: ${flowplayer-commercial.filesize}">
 </echo>
 <iterate-plugins target="write-filesize" buildfiles="${allplugins.buildfiles}" />
-<iterate-plugins target="write-filesize" buildfiles="${alljsplugins.buildfiles}" basedirectory="../js-plugins"/>
+<iterate-plugins target="write-filesize" buildfiles="${alljsplugins.buildfiles}" basedirectory="${jsplugins.dir}"/>
 
     </target>
 
@@ -141,7 +141,7 @@
             <echo file="${dist-file}" append="true" message="        - ${devkit-dist-name}${line.separator}" />
 
             <iterate-plugins target="write-dist-info" buildfiles="@{plugins.buildfiles}"/>
-            <iterate-plugins target="write-dist-info" buildfiles="@{jsplugins.buildfiles}" basedirectory="../js-plugins"/>
+            <iterate-plugins target="write-dist-info" buildfiles="@{jsplugins.buildfiles}" basedirectory="${jsplugins.dir}"/>
         </sequential>
     </macrodef>
 
