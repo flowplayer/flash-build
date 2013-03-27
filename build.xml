@@ -133,7 +133,7 @@
     </target>
 
 
-    <target name="zip-bundled" depends="build-lib">
+    <target name="zip-bundled">
         <antcall target="prepare"/>
 
         <compile-player binary="${bundled-basename}.swf" commercial="true" free="false"
