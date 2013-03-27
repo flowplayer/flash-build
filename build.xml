@@ -3,8 +3,8 @@
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
-    <property name="version" value="3.2.17" />
-    <property file="${version}.properties"  />
+    <property name="player-version" value="3.2.17" />
+    <property file="${player-version}.properties"  />
 
     <property name="source-dist-root-folder" value="flowplayer"/>
 

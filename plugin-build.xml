@@ -225,9 +225,9 @@
 
 	<target name="_deploy" if="deploy.dir.exists">
 		<echo message="deploying plugin to ${deploy_dir}" />
-		<copy file="${build-dir}/${plugin-binary}" todir="${deploy_dir}/${build-dir}" overwrite="true" />
-		<copy file="${build-dir}/${plugin-binary-versioned}" todir="${deploy_dir}/${build-dir}" overwrite="true" />
-        <copy file="${build-dir}/${plugin-binary-versioned}" todir="${deploy_dir}/${dist-dir}" overwrite="true" />
+		<copy file="${build-dir}/${plugin-binary}" todir="${deploy_dir}/${build-dir}" overwrite="true" verbose="true"/>
+		<copy file="${build-dir}/${plugin-binary-versioned}" todir="${deploy_dir}/${build-dir}" overwrite="true" verbose="true"/>
+        <copy file="${build-dir}/${plugin-binary-versioned}" todir="${deploy_dir}/${dist-dir}" overwrite="true" verbose="true"/>
 
         <!--<copy file="${build-dir}/${plugin-binary}" tofile="${deploy_dir}/${build-dir}/${basename}-dev.swf" overwrite="true" />-->
 	</target>
