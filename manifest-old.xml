@@ -18,5 +18,4 @@
     <component id="URLUtil" class="org.flowplayer.util.URLUtil" />
     <component id="Animation" class="org.flowplayer.view.AnimationEngine" />
     <component id="Log" class="org.flowplayer.util.Log" />
-    <component id="JSON" class="com.adobe.serialization.json.JSONforFP" />
 </componentPackage>

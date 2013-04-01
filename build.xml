@@ -13,7 +13,7 @@
                else="${version-1}.${version-2}.${version-3}-${version-status}">
         <equals arg1="${version-status}" arg2=""/>
     </condition>
-    <echo message="flowplayer version ${version}" />
+    <echo message="flowplayer version ${player-version}" />
 
     <property name="controls-version-info-quoted" value="&quot;&#39;${controls-version-info}&#39;&quot;"/>
     <property name="audio-version-info-quoted" value="&quot;&#39;${audio-version-info}&#39;&quot;"/>
@@ -235,7 +235,7 @@
     </macrodef>
 
 
-    <target name="build-lib" description="builds the FlowPlayer library" depends="check-uptodate" unless="uptodate.lib">
+    <target name="build-lib" description="builds the FlowPlayer library" >
         <antcall target="prepare"/>
         <antcall target="compile-lib"/>
         <copy file="${build-dir}/${library-binary}" tofile="${build-dir}/${library-binary-versioned}"/>
@@ -243,12 +243,13 @@
     </target>
 
     <target name="compile-lib">
-        <echo message="running ${compc_bin} with classpath ${classpath}" />
+        <echo message="running ${compc_bin} with classpath ${classpath}, using manifest ${manifest}" />
+
         <exec executable="${compc_bin}" failonerror="true">
             <arg line="-source-path ${src-as} ${src-as-commercial} ${classpath}"/>
             <arg line="-compute-digest=false"/>
             <arg line="-output '${build-dir}/${library-binary}'"/>
-            <arg line="-namespace http://flowplayer.org/flowplayer/2008 ${basedir}/manifest.xml -include-namespaces http://flowplayer.org/flowplayer/2008"/>
+            <arg line="-namespace http://flowplayer.org/flowplayer/2008 ${basedir}/${manifest} -include-namespaces http://flowplayer.org/flowplayer/2008"/>
             <arg line="-library-path ${libs-path} ${src-flash} "/>
             <arg line="-default-frame-rate=${framerate}"/>
             <arg line="-default-background-color=${bgcolor}"/>
