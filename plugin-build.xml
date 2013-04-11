@@ -96,7 +96,7 @@
 				<arg line="-default-background-color=${bgcolor}" />
                 <arg line="-strict=true" />
 				<arg line="-keep-as3-metadata=Value,External" />
-				<arg line="'${src-as}/@{plugin-main-class}'" />
+				<arg line="'@{src}/@{plugin-main-class}'" />
 				<arg line="-output '${build-dir}/@{out}'" />
                 <arg line="-incremental=false"/>
 			</exec>
