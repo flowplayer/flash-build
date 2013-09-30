@@ -15,7 +15,6 @@
     <component id="DisplayPluginModel" class="org.flowplayer.model.DisplayPluginModel" />
     <component id="ProviderPlugin" class="org.flowplayer.model.ProviderModel" />
     <component id="GraphicsUtil" class="org.flowplayer.util.GraphicsUtil" />
-    <component id="URLUtil" class="org.flowplayer.util.URLUtil" />
     <component id="Animation" class="org.flowplayer.view.AnimationEngine" />
     <component id="Log" class="org.flowplayer.util.Log" />
     <component id="JSON" class="com.adobe.serialization.json.JSONforFP" />
