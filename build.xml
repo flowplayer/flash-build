@@ -110,7 +110,7 @@
     </target>
 
     <target name="deploy" if="deploy.dir" description="copies swf and js to deploy dirs" depends="jsplugins">
-        <copy todir="${deploy.dir}" overwrite="true">
+        <copy todir="${deploy.dir}" overwrite="true" verbose="true">
             <fileset dir="${build-dir}">
                 <include name="*swf"/>
             </fileset>
@@ -132,7 +132,7 @@
 
     <target name="zip-bundled">
         <antcall target="prepare"/>
-
+        <echo message="zip-bundled: using license lib ${bundled-license-lib}" />
         <compile-player binary="${bundled-basename}.swf" commercial="true" free="false"
                         license-lib="${bundled-license-lib}" debug="false"/>
         <copy file="${build-dir}/${bundled-basename}.swf"
