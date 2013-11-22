@@ -97,7 +97,7 @@
     </target>
 
     <target name="write-dist-info">
-        <echo file="${dist-file}" append="true" message="${basename}:${line.separator}" />
+        <echo file="${dist-file}" append="true" message="${basename}.js:${line.separator}" />
         <echo file="${dist-file}" append="true" message="    folder: ${basename}${line.separator}" />
         <echo file="${dist-file}" append="true" message="    files:${line.separator}" />
         <echo file="${dist-file}" append="true" message="        - ${basename}-${version}.js${line.separator}" />
