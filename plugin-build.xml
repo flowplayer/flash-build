@@ -90,11 +90,13 @@
 				<arg line="${pluginruntimelibs1}" />
 				<arg line="${pluginruntimelibs2}" />
 				<arg line="${pluginruntimelibs3}" />
+                <arg line="-static-link-runtime-shared-libraries=false"/>
+                <arg line="-generate-frame-loader=false"/>
 				<arg line="-default-frame-rate=${framerate}" />
 				<arg line="-default-background-color=${bgcolor}" />
                 <arg line="-strict=true" />
 				<arg line="-keep-as3-metadata=Value,External" />
-				<arg line="'${src-as}/@{plugin-main-class}'" />
+				<arg line="'@{src}/@{plugin-main-class}'" />
 				<arg line="-output '${build-dir}/@{out}'" />
                 <arg line="-incremental=false"/>
 			</exec>
