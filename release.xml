@@ -64,15 +64,15 @@
 </echo>
 <echo file="${yaml-file}" append="true" message="    swf:">
 </echo>
-<echo file="${yaml-file}" append="true" message="        base: ${urlbase}">
+<echo file="${yaml-file}" append="true" message="        base: swf_base">
 </echo>
 <echo file="${yaml-file}" append="true" message="    js:">
 </echo>
-<echo file="${yaml-file}" append="true" message="        base: ${urlbase}">
+<echo file="${yaml-file}" append="true" message="        base: js_base">
 </echo>
 <echo file="${yaml-file}" append="true" message="    zip:">
 </echo>
-<echo file="${yaml-file}" append="true" message="        base: ${urlbase}">
+<echo file="${yaml-file}" append="true" message="        base: zip_base">
 </echo>
 
 <echo file="${yaml-file}" append="true" message="versions:">
