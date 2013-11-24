@@ -84,6 +84,7 @@
 				<arg line="-source-path @{src} ${mxmlc-library-path} ${mxmlc-sources}" />
                 <arg line="${mxmlc-define}" />
 				<arg line="${mxmlc-defines}" />
+                <arg line="-define+=CONFIG::secondaryDomains,${secondary-domains-quoted}"/>
 				<arg line="${libs}" />
 				<arg line="-library-path ${flex-libs-path} ${mxmlc-library-path}" />
 				<arg line="-runtime-shared-library-path=${flowplayer_lib},library.swf" />

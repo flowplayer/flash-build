@@ -1,10 +1,17 @@
 <project name="Flowplayer" default="build">
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
     <property file="build.generated.properties"/>
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
     <property name="player-version" value="3.2.17" />
+    <property name="secondaries-file" value="../tld/secondary" />
     <property file="${player-version}.properties"  />
+
+    <loadfile srcfile="${secondaries-file}" property="secondaryTxt" />
+    <propertyregex property="secondary-domains" input="${secondaryTxt}" regexp="\n" replace=" " global="true" />
+    <property name="secondary-domains-quoted" value="&quot;&#39;${secondary-domains}&#39;&quot;" />
 
     <property name="source-dist-root-folder" value="flowplayer"/>
 
@@ -191,6 +198,7 @@
     </macrodef>
 
     <macrodef name="compile-player">
+
         <attribute name="binary"/>
         <attribute name="commercial"/>
         <attribute name="free"/>
@@ -198,6 +206,9 @@
         <attribute name="debug"/>
         <sequential>
             <echo message="Building binary @{binary}, mxmlc is ${mxmlc_bin}"/>
+
+            <echo message="secondaries: ${secondary-domains}" />
+
             <exec executable="${mxmlc_bin}" failonerror="true">
                 <arg line="-define=CONFIG::commercialVersion,'@{commercial}'"/>
                 <arg line="-define+=CONFIG::freeVersion,'@{free}'"/>
@@ -212,6 +223,7 @@
                 <arg line="-define+=CONFIG::debug,'@{debug}'"/>
                 <arg line="-define+=CONFIG::enableByteRange,'false'"/>
                 <arg line="-define+=CONFIG::FLASH_10_1,'${flash.use.10.1}'"/>
+                <arg line="-define+=CONFIG::secondaryDomains,${secondary-domains-quoted}"/>
                 <arg line="${compiler.defines}"/>
                 <arg line="-keep-as3-metadata=Value,External"/>
                 <arg line="-source-path ${src-as} ${src-as-commercial} ${classpath} ${plugin-libs}"/>
@@ -378,6 +390,7 @@
                 <property name="devkit-dir" value="../${devkit-dir}"/>
                 <property name="js.deploy.dir" value="${js.deploy.dir}"/>
                 <property name="mxmlc-bin" value="${mxmlc-bin}" />
+                <property name="secondary-domains-quoted" value="${secondary-domains-quoted}" />
             </subant>
         </sequential>
     </macrodef>
