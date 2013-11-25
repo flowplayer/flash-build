@@ -125,6 +125,10 @@
             <property name="dist-file" value="${basedir}/dist/dist.yaml" />
             <delete file="${dist-file}" />
 
+            <echo file="${dist-file}" append="true" message="flowplayer.js:${line.separator}" />
+            <echo file="${dist-file}" append="true" message="    folder: flowplayer${line.separator}" />
+            <echo file="${dist-file}" append="true" message="    files:${line.separator}" />
+            <echo file="${dist-file}" append="true" message="        - flowplayer-${flowplayer-js-version-info}.min.js${line.separator}" />
             <echo file="${dist-file}" append="true" message="flowplayer:${line.separator}" />
             <echo file="${dist-file}" append="true" message="    folder: flowplayer${line.separator}" />
             <echo file="${dist-file}" append="true" message="    files:${line.separator}" />
