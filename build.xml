@@ -549,13 +549,13 @@
         </zip>
     </target>
 
-    <target name="dist" description="Create distribution packages">
-        <!--<iterate-plugins target="dist" buildfiles="${allplugins.buildfiles}"/>-->
+    <target name="dist" description="Create distribution packages" depends="build-all">
+        <iterate-plugins target="dist" buildfiles="${allplugins.buildfiles}"/>
         <ant target="zip"/>
         <ant target="zip-biz"/>
         <ant target="zip-devkit"/>
         <ant target="source-dist"/>
-        <!--<copy file="${src-js}/flowplayer.js/flowplayer-${flowplayer-js-version-info}.min.js" todir="${dist-dir}" />-->
+        <copy file="${src-js}/flowplayer.js/flowplayer-${flowplayer-js-version-info}.min.js" todir="${dist-dir}" />
     </target>
 
     <target name="all-dist" description="Create distribution packages for all plugins">
