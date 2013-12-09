@@ -5,7 +5,7 @@
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
-    <property name="player-version" value="3.2.17" />
+    <property name="player-version" value="3.2.17-dev" />
     <property name="secondaries-file" value="../tld/secondary" />
     <property file="${player-version}.properties"  />
 
@@ -468,7 +468,7 @@
                     <!--<include name="flowplayer-${flowplayer-js-version-info}.min.js" />-->
                     <include name="README.txt"/>
                 </zipfileset>
-                <zipfileset prefix="flowplayer" dir="${src-js}/flowplayer.js">
+                <zipfileset prefix="flowplayer" dir="${dist-dir}">
                     <include name="flowplayer-${flowplayer-js-version-info}.min.js"/>
                 </zipfileset>
                 <zipfileset prefix="flowplayer" dir="@{player-swf-dir}">
@@ -549,13 +549,13 @@
         </zip>
     </target>
 
-    <target name="dist" description="Create distribution packages" depends="build-all">
-        <iterate-plugins target="dist" buildfiles="${allplugins.buildfiles}"/>
+    <target name="dist" description="Create distribution packages">
+        <!--<iterate-plugins target="dist" buildfiles="${allplugins.buildfiles}"/>-->
         <ant target="zip"/>
         <ant target="zip-biz"/>
         <ant target="zip-devkit"/>
         <ant target="source-dist"/>
-        <copy file="${src-js}/flowplayer.js/flowplayer-${flowplayer-js-version-info}.min.js" todir="${dist-dir}" />
+        <!--<copy file="${src-js}/flowplayer.js/flowplayer-${flowplayer-js-version-info}.min.js" todir="${dist-dir}" />-->
     </target>
 
     <target name="all-dist" description="Create distribution packages for all plugins">
