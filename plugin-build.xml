@@ -311,22 +311,22 @@
     </target>
 
     <target name="write-version">
-        <echo file="${yaml-file}" append="true">        ${shortname}: ${version}${line.separator}</echo>
+        <echo file="${yaml-file}" append="true">        ${shortname_yaml}: ${version}${line.separator}</echo>
     </target>
 
     <target name="write-filesize">
         <length property="filesize" file="${build-dir}/${plugin-binary}" />
-        <echo file="${yaml-file}" append="true" message="    ${plugin-binary}: ${filesize}${line.separator}" />
-        <length property="zip.filesize" file="${dist-dir}/${basename}-${version}.zip" />
-        <echo file="${yaml-file}" append="true" message="    ${basename}.zip: ${zip.filesize}${line.separator}" />
+        <echo file="${yaml-file}" append="true" message="    ${basename_yaml}.swf: ${filesize}${line.separator}" />
+        <length property="zip.filesize" file="${dist-dir}/${basename_yaml}-${version}.zip" />
+        <echo file="${yaml-file}" append="true" message="    ${basename_yaml}.zip: ${zip.filesize}${line.separator}" />
     </target>
 
     <target name="write-dist-info">
-        <echo file="${dist-file}" append="true" message="${basename}:${line.separator}" />
+        <echo file="${dist-file}" append="true" message="${basename_yaml}:${line.separator}" />
         <echo file="${dist-file}" append="true" message="    folder: ${releasedir}${line.separator}" />
         <echo file="${dist-file}" append="true" message="    files:${line.separator}" />
-        <echo file="${dist-file}" append="true" message="        - ${basename}-${version}.zip${line.separator}" />
-        <echo file="${dist-file}" append="true" message="        - ${basename}-${version}.swf${line.separator}" />
+        <echo file="${dist-file}" append="true" message="        - ${basename_yaml}-${version}.zip${line.separator}" />
+        <echo file="${dist-file}" append="true" message="        - ${basename_yaml}-${version}.swf${line.separator}" />
     </target>
 
 	<target name="source-zip" depends="prepare" unless="pluginproxy">
