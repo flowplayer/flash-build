@@ -325,8 +325,8 @@
         <echo file="${dist-file}" append="true" message="${basename_yaml}:${line.separator}" />
         <echo file="${dist-file}" append="true" message="    folder: ${releasedir}${line.separator}" />
         <echo file="${dist-file}" append="true" message="    files:${line.separator}" />
-        <echo file="${dist-file}" append="true" message="        - ${basename_yaml}-${version}.zip${line.separator}" />
-        <echo file="${dist-file}" append="true" message="        - ${basename_yaml}-${version}.swf${line.separator}" />
+        <echo file="${dist-file}" append="true" message="        - ${basename}-${version}.zip${line.separator}" />
+        <echo file="${dist-file}" append="true" message="        - ${basename}-${version}.swf${line.separator}" />
     </target>
 
 	<target name="source-zip" depends="prepare" unless="pluginproxy">
