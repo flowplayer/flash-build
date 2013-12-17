@@ -1,5 +1,9 @@
 <project name="Flowplayer" default="build">
-    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="./lib/ant-contrib.jar"/>
+        </classpath>
+    </taskdef>
 
     <property file="build.generated.properties"/>
     <property file="${user.home}/core.properties" />
