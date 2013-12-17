@@ -2,6 +2,7 @@
     <taskdef resource="net/sf/antcontrib/antlib.xml">
         <classpath>
             <pathelement location="./lib/ant-contrib.jar"/>
+            <pathelement location="./lib/ant-apache-regexp.jar"/>
         </classpath>
     </taskdef>
 
