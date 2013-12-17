@@ -17,7 +17,7 @@
 
 
     <!-- target dir is dynamic -->
-	<var name="target.dir" value="${basedir}/../../../flash-build/dist"/>
+	<property name="target.dir" value="${basedir}/../../../flash-build/dist"/>
 
 	<if>
 		<contains string="${basedir}" substring="/tools/"/>

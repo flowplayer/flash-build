@@ -102,18 +102,36 @@
         <delete dir="${build-dir}/example"></delete>
     </target>
 
-    <target name="dobuild" depends="check-uptodate, build-lib, plugins" unless="uptodate.main">
+    <target name="dobuild" depends="check-uptodate, flowplayer.js, build-lib, plugins" unless="uptodate.main">
         <antcall target="prepare"/>
         <property name="licenselib" value="${lib-dir}/licensekey"/>
         <antcall target="compile"/>
         <example player-swf="${player-binary-versioned}" example-dir="example-free"/>
     </target>
 
-    <target name="dobuild-all" depends="check-uptodate, build-lib, plugins-all" unless="uptodate.main">
+    <target name="dobuild-all" depends="check-uptodate, flowplayer.js, build-lib, plugins-all" unless="uptodate.main">
         <antcall target="prepare"/>
         <property name="licenselib" value="${lib-dir}/licensekey"/>
         <antcall target="compile"/>
         <example player-swf="${player-binary-versioned}" example-dir="example-free"/>
+    </target>
+
+    <target name="concat-flowplayer.js">
+        <concat destfile="${dist-dir}/flowplayer.js">
+            <fileset dir="${src-js}/flowplayer.js" includes="flowplayer-src.js"/>
+
+            <fileset dir="${src-js}"
+                     includes="flashembed.js"/>
+        </concat>
+    </target>
+
+    <target name="flowplayer.js" depends="concat-flowplayer.js">
+        <ant antfile="js.xml" target="min">
+            <property name="source.file" value="${dist-dir}/flowplayer.js" />
+            <property name="target.file" value="${dist-dir}/flowplayer-${flowplayer-js-version-info}.js" />
+            <property name="target.dir" value="dist"/>
+            <property name="yui.path" value="lib/yuicompressor-2.4.2.jar"/>
+        </ant>
     </target>
 
     <target name="deploy" if="deploy.dir" description="copies swf and js to deploy dirs" depends="jsplugins">
@@ -468,7 +486,7 @@
                     <!--<include name="flowplayer-${flowplayer-js-version-info}.min.js" />-->
                     <include name="README.txt"/>
                 </zipfileset>
-                <zipfileset prefix="flowplayer" dir="${src-js}/flowplayer.js">
+                <zipfileset prefix="flowplayer" dir="${dist-dir}">
                     <include name="flowplayer-${flowplayer-js-version-info}.min.js"/>
                 </zipfileset>
                 <zipfileset prefix="flowplayer" dir="@{player-swf-dir}">
@@ -555,6 +573,7 @@
         <ant target="zip-biz"/>
         <ant target="zip-devkit"/>
         <ant target="source-dist"/>
+        <!--<copy file="${src-js}/flowplayer.js/flowplayer-${flowplayer-js-version-info}.min.js" todir="${dist-dir}" />-->
     </target>
 
     <target name="all-dist" description="Create distribution packages for all plugins">
