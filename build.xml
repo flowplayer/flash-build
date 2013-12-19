@@ -486,13 +486,13 @@
                     <!--<include name="flowplayer-${flowplayer-js-version-info}.min.js" />-->
                     <include name="README.txt"/>
                 </zipfileset>
-                <zipfileset prefix="flowplayer" dir="${dist-dir}">
+                <zipfileset prefix="flowplayer" dir="${basedir}/${dist-dir}">
                     <include name="flowplayer-${flowplayer-js-version-info}.min.js"/>
                 </zipfileset>
                 <zipfileset prefix="flowplayer" dir="@{player-swf-dir}">
                     <include name="@{player-swf}"/>
                 </zipfileset>
-                <zipfileset prefix="flowplayer" dir="${dist-dir}">
+                <zipfileset prefix="flowplayer" dir="${basedir}/${dist-dir}">
                     <include name="flowplayer.controls-${controls-version-info}.swf"/>
                 </zipfileset>
                 <zipfileset prefix="flowplayer/example" dir="${build-dir}/@{example-dir}">
