@@ -127,9 +127,9 @@
 
     <target name="flowplayer.js" depends="concat-flowplayer.js">
         <ant antfile="js.xml" target="min">
-            <property name="source.file" value="${dist-dir}/flowplayer.js" />
-            <property name="target.file" value="${dist-dir}/flowplayer-${flowplayer-js-version-info}.js" />
-            <property name="target.dir" value="dist"/>
+            <property name="source.file" value="${basedir}/${dist-dir}/flowplayer.js" />
+            <property name="target.file" value="${basedir}/${dist-dir}/flowplayer-${flowplayer-js-version-info}.js" />
+            <property name="target.dir" value="${basedir}/dist"/>
             <property name="yui.path" value="lib/yuicompressor-2.4.2.jar"/>
         </ant>
     </target>
