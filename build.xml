@@ -1,21 +1,16 @@
 <project name="Flowplayer" default="build">
-    <taskdef resource="net/sf/antcontrib/antlib.xml">
-        <classpath>
-            <pathelement location="./lib/ant-contrib.jar"/>
-            <pathelement location="./lib/ant-apache-regexp.jar"/>
-        </classpath>
-    </taskdef>
+    <taskdef name="flatten" classname="org.flowplayer.ant.Flatten" classpath="lib/ant-task.jar"/>
 
     <property file="build.generated.properties"/>
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
-    <property name="player-version" value="3.2.17" />
+    <property name="player-version" value="3.2.18" />
     <property name="secondaries-file" value="../tld/secondary" />
     <property file="${player-version}.properties"  />
 
     <loadfile srcfile="${secondaries-file}" property="secondaryTxt" />
-    <propertyregex property="secondary-domains" input="${secondaryTxt}" regexp="\n" replace=" " global="true" />
+    <flatten property="secondary-domains" value="${secondaryTxt}" />
     <property name="secondary-domains-quoted" value="&quot;&#39;${secondary-domains}&#39;&quot;" />
 
     <property name="source-dist-root-folder" value="flowplayer"/>
