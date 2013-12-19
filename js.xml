@@ -31,12 +31,6 @@
 		<property name="target.file" value="${target.dir}/${basename}-${version}.js"/>
 		<copy file="${source.file}" tofile="${target.file}" overwrite="true"/>
 		<echo message="${source.file} --> ${target.file} copied" />
-
-		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true"
-			file="${target.file}" />
-
-		<replaceregexp match="@DATE" replace="${date}" file="${target.file}" />
-      <replaceregexp match="@REVISION" replace="${revision}" file="${target.file}" />
 		<echo message="${target.file} build" />
 
 	</target>
@@ -58,7 +52,6 @@
             <targetfile/>
         </apply>
 
-        <replaceregexp match="/\*!" replace="/\*\*" file="${target.file}" />
 		<echo message="${target.file} minified"/>
 
 	</target>
