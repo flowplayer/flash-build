@@ -155,7 +155,7 @@
     </target>
 
 
-    <target name="zip-bundled">
+    <target name="zip-bundled" depends="flowplayer.js">
         <antcall target="prepare"/>
         <echo message="zip-bundled: using license lib ${bundled-license-lib}" />
         <compile-player binary="${bundled-basename}.swf" commercial="true" free="false"
