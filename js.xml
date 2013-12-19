@@ -1,8 +1,5 @@
 <project name="Common build file used by JS plugins" default="min">
 
-	<!-- additional tasks -->
-	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
-
 	<property name="shortname" value="${ant.project.name}"/>
 
     <condition property="basename" value="${shortname}" else="flowplayer.${shortname}">
@@ -19,13 +16,6 @@
     <!-- target dir is dynamic -->
 	<property name="target.dir" value="${basedir}/../../../flash-build/dist"/>
 
-	<if>
-		<contains string="${basedir}" substring="/tools/"/>
-		<then>
-			<var name="target.dir" value="${target.dir}/tools"/>
-		</then>
-	</if>
-
 	<!-- lint (http://www.jslint.com/lint.html)  -->
    <target name="lint">
 		<java jar="${rhino}" fork="true">
@@ -41,18 +31,6 @@
 		<property name="target.file" value="${target.dir}/${basename}-${version}.js"/>
 		<copy file="${source.file}" tofile="${target.file}" overwrite="true"/>
 		<echo message="${source.file} --> ${target.file} copied" />
-
-		<exec executable="svn" outputproperty="svnlog.out" >
-		<arg line="info ."/>
-		</exec>
-
-		<propertyregex property="revision" input="${svnlog.out}" select="\1">
-			<regexp pattern="Revision: ([0-9]*)"/>
-		</propertyregex>
-
-		<propertyregex property="date" input="${svnlog.out}" select="\1">
-			<regexp pattern="Date: (.+\))"/>
-		</propertyregex>
 
 		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true"
 			file="${target.file}" />
