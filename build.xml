@@ -5,7 +5,7 @@
     <property file="${user.home}/core.properties" />
     <property file="build.properties"/>
 
-    <property name="player-version" value="3.2.18" />
+    <property name="player-version" value="3.2.19-dev" />
     <property name="secondaries-file" value="../tld/secondary" />
     <property file="${player-version}.properties"  />
 
